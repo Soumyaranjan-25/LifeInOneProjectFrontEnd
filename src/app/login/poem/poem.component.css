@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(183, 202, 202);
+  /* Use a light gray color as the background */
+}
+
+.quote {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8f0b79;
+  /* Use a purple color for the text */
+  text-align: center;
+  border: 2px solid #595291;
+  /* Add a purple border to the text */
+  padding: 20px;
+  /* Add some padding to the text */
+  border-radius: 10px;
+  /* Add rounded corners to the border */
+  background-color: #eee2e2;
+  /* Use a white background for the text */
+}
+
+.author {
+  font-size: 1rem;
+  color: #311fbb;
+  /* Use a purple color for the author name */
+  text-align: right;
+  display: block;
+  margin-top: 10px;
+  /* Add some space between the quote and author */
+}
+
+.name {
+  font-size: 20px;
+  color: rgb(21, 83, 141);
+}

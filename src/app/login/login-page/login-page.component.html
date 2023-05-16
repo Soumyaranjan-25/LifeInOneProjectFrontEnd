@@ -1,0 +1,34 @@
+<body>
+  <div class="container">
+    <div class="col-sm-10 offset-md-1">
+
+      <div class="text-center mt-3 fw-bold display-6">Login Here</div>
+      <form [formGroup]="loginForm"  (ngSubmit)="login()" class="mt-3">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input formControlName="userName" matInput placeholder="Enter Name" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" matInput type="password" placeholder="Enter Password" required>
+        </mat-form-field>
+        <div>
+          <h3>Forgot password?</h3>
+        </div>
+
+        <div class="text-center mb-4 ">
+          <button type="submit" mat-raised-button color="primary" class="login">Login</button>
+        </div>
+      </form>
+      <div class="text-center mb-3">
+        <h3>or Login In with</h3>
+        <button class="icon" style="margin-right: 25px;" id="google-button"></button>
+        <button class="signin" routerLink="/login/signIn"><u>Sign In</u></button>
+      </div>
+
+    </div>
+  </div>
+  <!-- </mat-card> -->
+
+</body>

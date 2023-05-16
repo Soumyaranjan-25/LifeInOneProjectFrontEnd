@@ -1,0 +1,17 @@
+<div class="header">
+  <button routerLink="./app-list">
+    <mat-icon class="icon" svgIcon="thumbs-up"></mat-icon>
+  </button>
+  <div class="links-container">
+    <ng-container *ngFor="let link of links">
+      <a [routerLink]="link.url" class="link">{{ link.name }}</a>
+    </ng-container>
+  </div>
+  <div class="user-info">
+    <mat-icon svgIcon="user" class="icon user-photo" aria-hidden="false"></mat-icon>
+    <span class="user-name">{{ username }}</span>
+  </div>
+  <button (click)="onSettingsButtonClick()">
+    <mat-icon svgIcon="setting" class="icon" aria-hidden="false"></mat-icon>
+  </button>
+</div>

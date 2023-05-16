@@ -1,0 +1,18 @@
+.container {
+    padding: 20px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    display: flex;
+    align-items: center;
+  }
+  
+  .card-body i {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+      

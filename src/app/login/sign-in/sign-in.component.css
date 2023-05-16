@@ -1,0 +1,52 @@
+.full-width {
+  width: 100%;
+}
+
+h4 {
+  text-align: right;
+}
+
+.container {
+  margin-top: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  height: auto;
+  width: 400px;
+  background: url('../../../assets/cool-background.png')right top;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+body {
+  /* background: #EFE6E6 url('../../../assets/loginbg.png') center center/cover no-repeat; */
+  background-color: rgb(183, 202, 202);
+  margin: 0;
+  height: 100vh;
+}
+
+.login {
+  border-radius: 40px;
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.login:hover {
+  opacity: 0.8;
+  /* reduce opacity on hover for a subtle effect */
+}
+
+.icon {
+  /* display: inline-block; */
+  width: 30px;
+  /* adjust this value to fit your image size */
+  height: 30px;
+  /* adjust this value to fit your image size */
+}

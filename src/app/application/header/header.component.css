@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #f2f2f2;
+}
+
+.header button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.links-container {
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Aligns the user-info section to the right */
+}
+
+.user-info .user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 8px;
+}
+
+.user-info .user-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 4px;
+}
