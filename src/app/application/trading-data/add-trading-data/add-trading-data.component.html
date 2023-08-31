@@ -1,0 +1,147 @@
+<!-- add-trading-data.component.html -->
+
+<div class="container mt-4  bg-transparent">
+    <h1 class="text-center custom-heading">Add Trading Data</h1>
+    <!-- Trading Data Form -->
+    <form>
+        <div class="row mt-4">
+            <div class="col-md-6 form-group d-flex align-items-center">
+                <label for="title">Title<span class="text-danger">*</span></label>
+                <input type="text" class="form-control light-input" id="title" name="title"
+                    placeholder="Enter the title" [(ngModel)]="tradeData.title" autocomplete="off">
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4 form-group d-flex align-items-center">
+                <label for="date">Date<span class="text-danger">*</span></label>
+                <input type="date" class="form-control light-input" id="date" name="date" placeholder="Enter the date"
+                    [(ngModel)]="tradeData.date" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Share Name Field -->
+        <div class="row mt-4">
+            <div class="col-md-6 position-relative  input-container form-group d-flex align-items-center">
+                <label for="shareName">Share Name<span class="text-danger">*</span></label>
+                <input type="text" class="form-control light-input" id="shareName" name="shareName"
+                    placeholder="Enter the share name" [(ngModel)]="tradeData.shareName" autocomplete="off"
+                    (input)="onShareNameInputChange($event)">
+                <!-- Display shareNameSuggestions as suggestions -->
+                <ul class="list-group suggestions-list" *ngIf="shareNameSuggestions.length > 0">
+                    <li class="list-group-item" *ngFor="let suggestion of shareNameSuggestions"
+                        (click)="selectShareNameSuggestion(suggestion)">
+                        {{ suggestion }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-1"></div>
+            <!-- Type of Trade Field -->
+            <div class="col-md-4 form-group d-flex align-items-center">
+                <label>Type of Trade<span class="text-danger right1">*</span></label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input mt-2" name="tradeType" id="buying" value="buying"
+                        [ngModel]="tradeData.tradeType" (ngModelChange)="onTradeTypeChange($event)">
+                    <label class="form-check-label text-success right2" for="buying">Buying</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input mt-2" name="tradeType" id="selling" value="selling"
+                        [ngModel]="tradeData.tradeType" (ngModelChange)="onTradeTypeChange($event)">
+                    <label class="form-check-label text-danger" for="selling">Selling</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <!-- Buying Price Field -->
+            <div class="col-md-6 form-group d-flex align-items-center" *ngIf="tradeData.tradeType === 'buying'">
+                <label for="buyingPrice">Buying Price<span class="text-danger">*</span></label>
+                <input type="text" class="form-control light-input" id="buyingPrice" name="buyingPrice"
+                  placeholder="0.00" [(ngModel)]="tradeData.buyingPrice" (ngModelChange)="calculatePL()" autocomplete="off">
+              </div>
+              <div class="col-md-6 form-group d-flex align-items-center" *ngIf="tradeData.tradeType === 'selling'">
+                <label for="sellingPrice">Selling Price<span class="text-danger">*</span></label>
+                <input type="text" class="form-control light-input" id="sellingPrice" name="sellingPrice"
+                  placeholder="0.00" [(ngModel)]="tradeData.sellingPrice" (ngModelChange)="calculatePL()" autocomplete="off">
+              </div>
+            <div class="col-md-1"></div>
+            <!-- Selling Price Field -->
+
+            <!-- Quantity Field -->
+            <div class="col-md-4 form-group d-flex align-items-center">
+                <label for="quantity">Quantity<span class="text-danger">*</span></label>
+                <input type="number" class="form-control light-input" id="quantity" name="quantity"
+                    placeholder="Enter the quantity" [(ngModel)]="tradeData.quantity" (ngModelChange)="calculatePL()" autocomplete="off">
+            </div>
+        </div>
+        
+    <div class="row mt-4">
+        <div class="col-md-6 form-group d-flex align-items-center" *ngIf="tradeData.tradeType === 'buying'">
+            <label for="sellingPrice">Selling Price<span class="text-danger">*</span></label>
+            <input type="text" class="form-control light-input" id="sellingPrice" name="sellingPrice"
+              placeholder="0.00" [(ngModel)]="tradeData.sellingPrice" (ngModelChange)="calculatePL()" autocomplete="off">
+          </div>
+          <div class="col-md-6 form-group d-flex align-items-center" *ngIf="tradeData.tradeType === 'selling'">
+            <label for="buyingPrice">Buying Price<span class="text-danger">*</span></label>
+            <input type="text" class="form-control light-input" id="buyingPrice" name="buyingPrice"
+              placeholder="0.00" [(ngModel)]="tradeData.buyingPrice" (ngModelChange)="calculatePL()" autocomplete="off">
+          </div>
+        <div class="col-md-1"></div>
+        <!-- P&L Field -->
+        <div class="col-md-4">
+          <div class="form-group d-flex align-items-center">
+            <label for="profitLoss">P&amp;L</label>
+            <input type="text" class="form-control light-input" id="profitLoss" name="profitLoss"
+              placeholder="P&amp;L" disabled [(ngModel)]="tradeData.profitLoss" [ngClass]="getPLClass()" autocomplete="off">
+          </div>
+        </div>
+        <div class="col-md-4 offset-md-7 text-danger">
+          <div *ngIf="isPLWarningVisible()">
+            ** Please provide Buying Price, Selling Price, and Quantity to calculate P&amp;L.
+          </div>
+        </div>
+      </div>
+        <div class="row mt-4">
+            <div class="col-md-4 form-group d-flex align-items-center">
+                <label for="picture">Picture</label>
+                <input type="file" class="form-control-file left2" id="picture" name="picture"
+                    (change)="onImageChange($event)"  [disabled]="isImageUploaded">
+            </div>
+
+            <div class="col-md-2 d-flex justify-content-center align-items-center">
+                <button class="btn btn-secondary" (click)="addMoreImages()">
+                    <i class="fa fa-plus"></i> Add
+                </button>
+            </div>
+
+            <!-- Image Container -->
+            <div class="col-md-6">
+                <div class="image-container">
+                    <div class="uploaded-image-wrapper" *ngFor="let image of images; let i = index">
+                        <img [src]="image" class="uploaded-image">
+                        <div class="delete-icon-container mt-1">
+                            <i class="fa fa-close delete-icon" (click)="removeImage(i)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12 form-group d-flex align-items-center">
+                <label for="reason">Reason<span class="text-danger">*</span></label>
+                <textarea class="form-control light-input" id="reason" name="reason" rows="3"
+                    placeholder="Enter the reason" [(ngModel)]="tradeData.reason" autocomplete="off"></textarea>
+            </div>
+        </div>
+
+
+        <!-- Add other form fields for trading data -->
+
+        <!-- Row for buttons -->
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3 text-center">
+                <!-- Center the buttons using offset and text-center class -->
+                <button type="submit" class="btn btn-success right2 mb-4" (click)="onSubmit()">Save</button>
+                <button type="button" class="btn btn-danger mb-4" (click)="resetForm()">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>

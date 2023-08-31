@@ -1,0 +1,22 @@
+/* Set the height of the editor-container to full screen */
+.editor-container {
+    height: 81vh; /* 100vh represents 100% of the viewport height */
+    position: relative; /* Ensure relative positioning for the nested elements */
+  }
+  
+  /* Add space between the toolbar and the editor */
+  .editor-toolbar {
+    padding: 20px;
+    background-color: #b4adad;
+  }
+  
+  /* Set a fixed height for the CKEditor content area */
+  /* .ck-content {
+    height: calc(100% - 40px); 
+  } */
+  :host ::ng-deep .ck-editor__editable_inline {
+    min-height: 400px !important;
+}
+.save{
+    margin-right: 10px;
+}

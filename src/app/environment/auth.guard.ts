@@ -17,11 +17,13 @@ export const AuthGuard: CanActivateFn = (
         
         return true; // Allow access to the route
       } else {
+        alert("it goes to else in auth guard");
         router.navigate(['login']);
         return false; // Deny access to the route
       }
     }),
     catchError(() => {
+      alert("it goes to else in auth guard");
       router.navigate(['login']);
       return of(false); // Deny access to the route
     })

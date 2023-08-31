@@ -12,6 +12,15 @@ import { AddDocumentComponent } from './documents/add-document/add-document.comp
 import { ViewDocumentsComponent } from './documents/view-documents/view-documents.component';
 import { AddContactComponent } from './contact/add-contact/add-contact.component';
 import { AppListComponent } from './app-list/app-list.component';
+import { WriteDiaryComponent } from './diary/write-diary/write-diary.component';
+import { ViewDiaryComponent } from './diary/view-diary/view-diary.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AddTradingDataComponent } from './trading-data/add-trading-data/add-trading-data.component';
+import { ViewTradingDataComponent } from './trading-data/view-trading-data/view-trading-data.component';
+import { ViewIndividualTradingDataComponent } from './trading-data/view-individual-trading-data/view-individual-trading-data.component';
+import { ImageModalComponent } from './common/image-modal/image-modal.component';
+import { AppLockComponent } from './app-lock/app-lock.component';
+import { PasswordChangeDialogComponent } from './common/password-change-dialog/password-change-dialog.component';
 
 
 @NgModule({
@@ -22,7 +31,15 @@ import { AppListComponent } from './app-list/app-list.component';
     ViewContactComponent,
     AddDocumentComponent,
     ViewDocumentsComponent,
-    AppListComponent
+    AppListComponent,
+    WriteDiaryComponent,
+    ViewDiaryComponent,
+    AddTradingDataComponent,
+    ViewTradingDataComponent,
+    ViewIndividualTradingDataComponent,
+    ImageModalComponent,
+    AppLockComponent,
+    PasswordChangeDialogComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +48,8 @@ import { AppListComponent } from './app-list/app-list.component';
     ReactiveFormsModule,
     MaterialModule,
     BootstrapModule,
+    CKEditorModule,
+  
   ],
   exports: [HeaderComponent]
 })

@@ -1,0 +1,27 @@
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative; /* Add this line to create a positioning context for the container */
+}
+
+.diary-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9; /* Change the background color of each diary item */
+}
+
+.diary-date {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.diary-date .edit-icon {
+    margin-left: 10px; /* Add some space between the date and the edit icon */
+    color: #3a3939; /* Change the color of the edit icon (blue) */
+    position: absolute;
+    right: 30px;
+    font-size: 25px;
+}

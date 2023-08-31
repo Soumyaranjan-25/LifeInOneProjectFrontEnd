@@ -1,0 +1,36 @@
+.bold{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Add these styles to your CSS file */
+.app-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .app-item {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust as needed */
+    max-width: calc(33.33% - 20px); /* Adjust as needed */
+    text-align: center;
+  }
+  
+  .app-container {
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .app-name {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .blur-content {
+        filter: blur(1.5px); /* Apply the blur effect */
+        pointer-events: none; /* Disable interactions with the blurred content */
+}

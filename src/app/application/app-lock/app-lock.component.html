@@ -1,0 +1,35 @@
+<!-- app-lock.component.html -->
+<div class="container mt-4">
+    <h1 class="mb-3 text-center">App Lock Settings</h1>
+
+    <!-- App Lock Toggle -->
+    <div class=" text-center">
+        <label class="right1 bold">Enable App Lock</label>
+        <mat-slide-toggle [(ngModel)]="appLockEnabled" (change)="onAppLockToggle()"></mat-slide-toggle>
+        <p class="mt-3">When app lock is enabled, you'll need to enter your password to access the app.</p>
+    </div>
+
+
+    <!-- Note Section -->
+
+
+    <!-- Change Password Link -->
+    <div class="d-flex justify-content-end mb-3">
+        <button mat-button color="primary" (click)="openPasswordPopup(false)">Change Password</button>
+    </div>
+
+   
+
+    <!-- Horizontal Line -->
+    <hr>
+
+    <div class="app-list" [class.blur-content]="!appLockEnabled">
+        <div class="app-item" *ngFor="let app of apps">
+            <div class="app-container">
+                <label class="app-name">{{ app.appName }}</label>
+                <mat-slide-toggle [(ngModel)]="app.locked"  [disabled]="!appLockEnabled"></mat-slide-toggle>
+            </div>
+        </div>
+    </div>
+
+</div>

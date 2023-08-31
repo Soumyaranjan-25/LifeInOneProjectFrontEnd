@@ -1,0 +1,106 @@
+<div *ngIf="tradeData == null" class="container mt-4">
+    <h1 class="text-center">View Trading Data</h1>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-2" *ngFor="let tradeData of tradingData">
+            <mat-card class="trading-card" (click)="showTradeDetails(tradeData)">
+                <mat-card-content>
+                    <!-- Date -->
+                    <div class="card-date">{{ tradeData.date | date }}</div>
+                    <!-- Title -->
+                    <mat-card-title class="card-title">{{ tradeData.title }}</mat-card-title>
+                    <!-- Share Name (Centered) -->
+                    <mat-card-subtitle class="card-subtitle">Share - {{ tradeData.shareName }}</mat-card-subtitle>
+
+                    <div class="pnl-container">
+                        <div class="buy-sell-container">
+                            <span class="lableOfType">Type : &nbsp;</span>
+                            <div class="buy-sell-label"
+                                [ngClass]="{'green-label': tradeData.tradeType === 'buying', 'red-label': tradeData.tradeType === 'selling'}">
+                                {{ tradeData.tradeType }}</div>
+                        </div>
+                        <div class="pnl-value-container">
+                            <strong>P&amp;L: &nbsp;</strong>
+                            <span [ngStyle]="{'color': getProfitColor(tradeData.profitLoss)}">
+                                {{ getFormattedProfit(tradeData.profitLoss) }}
+                            </span>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="tradeData != null">
+    
+    <div class="navigation-buttons">
+        <button class="btn  prev" (click)="navigateToPrevious()">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="btn  next" (click)="navigateToNext()">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
+    <div class="container mt-4">
+        <span class="back-icon" (click)="goBack()">
+            <i class="fa fa-arrow-left"></i><span class="text-danger left1"> Back</span>
+        </span>
+        <h1 class="text-center">{{ tradeData.title }}</h1>
+        <div class="row mt-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-8 ">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <p><strong>Share Name :</strong> {{ tradeData.shareName }}</p>
+                        <p><strong>Trade Type :</strong> {{ tradeData.tradeType }}</p>
+                        <p><strong>Buying Price :</strong> {{ tradeData.buyingPrice }}</p>
+                        <p><strong>Stop Loss :</strong> {{ tradeData.sellingPrice }}</p>
+                        <p><strong>Quantity :</strong> {{ tradeData.quantity }}</p>
+                        <!-- Other trading data properties... -->
+
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Date :</strong> {{ tradeData.date }}</p>
+                        <p><strong>Currency :</strong> INR</p>
+                        <p><strong>Selling Type :</strong> {{ tradeData.sellingPrice }}</p>
+                        <p><strong>Is Stop Loss Hit :</strong> True</p>
+                        <p><strong>P & L :</strong> {{ tradeData.profitLoss }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-8 mx-auto">
+                    <table class="table table-bordered">
+                        <thead style="text-align: center;">
+                            <th><strong>Reason:</strong></th>
+                        </thead>
+                        <tbody>
+                            <td style="text-align: center;">{{ tradeData.reason }}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <!-- Display images using Angular Material Card -->
+                <mat-card>
+                    <mat-card-content>
+                        <h3 class="text-center">Images</h3>
+                        <div class="image-container">
+                            <div class="col-md-6 mt-3" *ngFor="let image of tradeDataImages">
+                                <a (click)="openImageModal(image)">
+                                    <img src="../../../../assets/tradingData/{{ image }}" alt="Trading Image"
+                                        class="img-fluid mb-2">
+                                </a>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+           
+
+
+        </div>
+    </div>
+</div>

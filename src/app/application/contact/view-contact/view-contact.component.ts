@@ -7,8 +7,8 @@ import { HeaderService } from 'src/app/services/header.service';
   styleUrls: ['./view-contact.component.css']
 })
 export class ViewContactComponent {
-  links:any[]=[{'name':'add-contact','url':'./add-contact'},
-  {'name':'view-contact','url':'./view-contact'}]
+  links:any[]=[{'name':'add-contact','url':'./add-contact', 'app':'Contacts'},
+  {'name':'view-contact','url':'./view-contact', 'app':'Contacts'}]
   constructor(private headerService: HeaderService){}
   ngOnInit() {
     this.headerService.sendLinks(this.links);

@@ -1,0 +1,159 @@
+/* Styles for the trading cards container */
+.trading-cards-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: wrap; /* Allow cards to wrap to new lines */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Adjust the spacing between cards */
+  }
+  
+  /* Styles for the trading card */
+  .trading-card {
+    background-color: #cdcfcb;
+    flex-basis: 25%; /* Each card occupies 25% of the container's width */
+    position: relative;
+    max-width: 350px; /* Set the max width to make the card smaller */
+  }
+  
+  /* Styling for the date */
+  .card-date {
+    color: #888;
+  }
+  
+  /* Styling for the title */
+  .card-title {
+    font-weight: bold;
+    font-size: 1.25rem; /* Increase the font size for the title */
+    text-align: center; /* Center the title */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide any overflow */
+    text-overflow: ellipsis; /* Display ellipsis (...) for truncated text */
+  }
+  
+  /* Styling for the share name */
+  .card-subtitle {
+    font-size: 1.1rem; /* Reduce the font size for the share name */
+    text-align: center; /* Center the share name */
+    margin-top: 3px; /* Add a small margin at the top */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide any overflow */
+    text-overflow: ellipsis; /* Display ellipsis (...) for truncated text */
+    color: #61635c;
+  }
+  
+  /* Styling for the P&L */
+  .pnl-container {
+    font-weight: bold;
+    font-size: 1rem; /* Set font size for P&L */
+    text-align: right; /* Align the P&L value to the right side */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align items to the right within the container */
+    align-items: baseline;
+    color: #474646;
+    /* padding-right: 10px; Add padding to the right side */
+  }
+  
+  /* Styling for positive profit value */
+  .pnl-container span.green-profit {
+    color: green;
+  }
+  
+  /* Styling for negative profit value */
+  .pnl-container span.red-profit {
+    color: red;
+  }
+  
+
+  .buy-sell-container {
+    flex: 1; /* Take up remaining space to push the P&L value to the right */
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the "buying" or "selling" label */
+.buy-sell-label {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Container for the P&L value */
+.pnl-value-container {
+    text-align: right; /* Align P&L value to the right */
+}
+.lableOfType{
+  color: #100c46;
+}
+
+.green-label {
+  font-size: 1rem;
+  color: green;
+}
+
+/* Styling for the "selling" label */
+.red-label {
+  font-size: 1rem;
+  color: red;
+}
+
+.table-bordered {
+  border: 0.2px solid rgb(148, 144, 144);
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.image-container .col-md-6 {
+  width: 50%;
+  padding: 0 5px; 
+  box-sizing: border-box;
+}
+
+.image-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: fixed; 
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: rgb(107, 52, 52);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  margin-right: 10px; 
+}
+.prev {
+  left: 0;
+  margin-left: 10px; /* Adjust the margin as needed */
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* .back-icon {
+  font-size: 24px; 
+  position: absolute;
+  top: 20px; 
+  left: 20px; 
+  cursor: pointer;
+} */
+
+
+

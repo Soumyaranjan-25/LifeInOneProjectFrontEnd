@@ -24,6 +24,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const materialModules = [
   MatAutocompleteModule,
@@ -50,6 +52,8 @@ const materialModules = [
   MatFormFieldModule,
   MatButtonToggleModule,
   MatTreeModule,
+  MatDialogModule,
+  MatSlideToggleModule,
   CommonModule
 ];
 

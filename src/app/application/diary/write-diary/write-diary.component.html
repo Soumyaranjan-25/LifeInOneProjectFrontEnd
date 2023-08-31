@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="editor-container">
+    <div class="editor-toolbar">
+      <button class="btn save btn-primary" (click)="onSave()">Save</button>
+      <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+    </div>
+    <ckeditor [(ngModel)]="diary.diaryContent" [editor]="Editor" [config]="editorConfig"></ckeditor>
+  </div>
+</div>

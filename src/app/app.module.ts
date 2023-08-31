@@ -10,6 +10,7 @@ import { LoginModule } from "./login/login.module";
 import { authIntercepterProviders } from './environment/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { ApplicationModule } from './application/application.module';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { ApplicationModule } from './application/application.module';
         BrowserAnimationsModule,
         LoginModule,
         HttpClientModule,
-        ApplicationModule
+        ApplicationModule,
+        CKEditorModule,
     ]
 })
 export class AppModule { }

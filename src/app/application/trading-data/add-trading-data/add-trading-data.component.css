@@ -1,0 +1,109 @@
+/* styles.css */
+
+/* Override Bootstrap background color for the container */
+.container.bg-transparent {
+    background-color: transparent; /* Set the background color to transparent */
+  }
+  
+  /* Add a light background color to input fields */
+  .light-input {
+    background-color: #cdcfcb; /* Replace this with your desired light color */
+    margin-left: 10px;
+  }
+ 
+  label{
+    margin-top: 3px;
+  }
+  .form-group label {
+    font-size: 16px; /* Adjust the font size as needed */
+    font-weight: bold;
+  }
+
+  .form-check-input:checked {
+    /* Change the color of the checkbox when it is checked */
+    background-color: black;
+    border-color: black;
+  }
+
+  /* add-trading-data.component.css */
+
+/* Increase the size of the file input element */
+
+  
+ 
+  
+  /* Add some margin for the file input container */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  /* Style the uploaded images to be 150px by 100px and add spacing between them */
+  .uploaded-image-wrapper {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .uploaded-image {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid #adb5bd;
+    border-radius: 5px;
+  }
+  
+  .custom-heading {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  .delete-icon-container {
+    text-align: center;
+    margin-top: 5px; /* Adjust as needed */
+}
+
+.delete-icon {
+    cursor: pointer;
+    font-size: 25px;
+    color: red;
+}
+
+
+
+/* Styles for the suggestion list */
+.suggestions-list {
+  position: absolute;
+  width: 80%;
+  background-color: transparent;;
+  list-style: none;
+  margin-left: 90px;
+  padding: 0;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  z-index: 1;
+  top: 100%;
+}
+
+
+/* Style for the suggestion items */
+.suggestions-list li {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #cdcfcb;
+}
+
+/* Position the suggestion list just below the share name field */
+.col-md-6.position-relative {
+  position: relative;
+}
+
+/* Give the share name field some space at the bottom to display suggestions */
+.col-md-6.position-relative input {
+  margin-bottom: 5px;
+}
+

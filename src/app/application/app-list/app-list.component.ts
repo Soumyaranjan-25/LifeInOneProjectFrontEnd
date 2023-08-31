@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppService } from 'src/app/services/app.service';
 import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
@@ -7,22 +8,35 @@ import { HeaderService } from 'src/app/services/header.service';
   styleUrls: ['./app-list.component.css']
 })
 export class AppListComponent {
-  modules = [
-    { name: 'Contacts', icon: 'person', link:'../add-contact' },
-    { name: 'Documents', icon: 'description',link:'' },
-    { name: 'Time Schedule', icon: 'schedule',link:'' },
-    { name: 'My Photos', icon: 'photo_library',link:'' },
-    { name: 'My Notes', icon: 'note' ,link:''},
-    { name: 'Food Routine', icon: 'restaurant',link:'' },
-    { name: 'Diary', icon: 'book',link:'' },
-    { name: 'Weakness', icon: 'sentiment_dissatisfied',link:'' },
-    { name: 'Things to Do', icon: 'list',link:'' },
-  ];
+  constructor(private headerService: HeaderService,
+    private appService: AppService) { }
 
-  links:any[]=[]
-  constructor(private headerService: HeaderService){}
+  searchQuery: any = "";
+  filteredModules: any[] = [];
+  modules :any[]=[];
+ 
+  links: any[] = [{ 'name': '', 'url': '', 'app': 'Apps' }]
+
   ngOnInit() {
     this.headerService.sendLinks(this.links);
+    this.loadModules();
   }
-  
+  loadModules() {
+    this.appService.getAllApps().subscribe({
+      next: (response) => {
+        this.modules = response.data;
+        this.filteredModules=response.data;
+      },
+      error: (error) => {
+        console.error('Error fetching in loading apps', error);
+      }
+    });
+  }
+
+  onSearch(): void {
+    this.filteredModules = this.modules.filter(module =>
+      module.appName.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
 }

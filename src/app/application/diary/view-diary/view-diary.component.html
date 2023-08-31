@@ -1,0 +1,12 @@
+<div class="container">
+    <h1 class="text-center mt-2">My Daily Diary</h1>
+    <div *ngFor="let diary of diaryList" class="diary-item">
+      <div class="diary-date">
+        {{ diary.dateOfWriting | date: 'dd-MM-yyyy' }}
+        <i class="fa fa-edit edit-icon " (click)="redirectToWriteDiary(diary.diaryId)"></i>
+      </div>
+      <hr>
+      <div class="diary-content" [innerHTML]="sanitizeHTML(diary.diaryContent)"></div>
+    </div>
+  </div>
+  
