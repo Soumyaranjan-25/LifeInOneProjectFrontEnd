@@ -17,7 +17,6 @@ import { ViewDiaryComponent } from './diary/view-diary/view-diary.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddTradingDataComponent } from './trading-data/add-trading-data/add-trading-data.component';
 import { ViewTradingDataComponent } from './trading-data/view-trading-data/view-trading-data.component';
-import { ViewIndividualTradingDataComponent } from './trading-data/view-individual-trading-data/view-individual-trading-data.component';
 import { ImageModalComponent } from './common/image-modal/image-modal.component';
 import { AppLockComponent } from './app-lock/app-lock.component';
 import { PasswordChangeDialogComponent } from './common/password-change-dialog/password-change-dialog.component';
@@ -36,7 +35,6 @@ import { PasswordChangeDialogComponent } from './common/password-change-dialog/p
     ViewDiaryComponent,
     AddTradingDataComponent,
     ViewTradingDataComponent,
-    ViewIndividualTradingDataComponent,
     ImageModalComponent,
     AppLockComponent,
     PasswordChangeDialogComponent

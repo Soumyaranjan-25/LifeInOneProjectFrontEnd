@@ -13,17 +13,22 @@
     <span class="user-name">{{ username }}</span>
   </div>
 
-  <button class="settings-button" mdbDropdownToggle>
-    <mat-icon svgIcon="setting" class="icon" aria-hidden="false"></mat-icon>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Settings">
+    <mat-icon>settings</mat-icon>
   </button>
-
-  <!-- Dropdown Content -->
-  <div mdbDropdown class="dropdown" *mdbDropdown="let isOpen = isOpen">
-    <div data-option="My Profile">My Profile</div>
-    <div *ngIf="isDarkMode; else dayModeOption" data-option="Night Mode/Day Mode">Night Mode</div>
-    <ng-template #dayModeOption>
-      <div data-option="Night Mode/Day Mode">Day Mode</div>
-    </ng-template>
-    <div data-option="Logout">Logout</div>
-  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/profile">
+      <mat-icon>account_circle</mat-icon>
+      <span>My Profile</span>
+    </button>
+    <button mat-menu-item routerLink="/app-lock">
+      <mat-icon>lock</mat-icon>
+      <span>App Lock</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Log Out</span>
+    </button>
+  </mat-menu>
+  
 </div>

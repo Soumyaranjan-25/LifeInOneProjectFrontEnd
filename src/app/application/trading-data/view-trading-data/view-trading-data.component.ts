@@ -3,6 +3,7 @@ import { HeaderService } from 'src/app/services/header.service';
 import { TradingDataService } from 'src/app/services/trading-data.service';
 import { ImageModalComponent } from '../../common/image-modal/image-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-view-trading-data',
@@ -13,7 +14,8 @@ export class ViewTradingDataComponent {
 
   constructor(private headerService: HeaderService,
     private tradingService: TradingDataService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private ngxService: NgxUiLoaderService) { }
 
 
   links: any[] = [{ 'name': 'Add trading Data', 'url': './add-trading-data', 'app': 'Trading Data' },
@@ -56,10 +58,12 @@ export class ViewTradingDataComponent {
   }
 
   showTradeDetails(tradeData: any) {
+    this.ngxService.start();
     console.log(tradeData);
     this.tradeData = tradeData;
     this.tradeDataImages = this.tradeData.images.split(',')
       .map((filename: string) => filename.trim().replace('[', '').replace(']', ''));
+      this.ngxService.stop();
   }
 
   openImageModal(imageUrl: any) {

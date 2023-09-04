@@ -18,6 +18,6 @@ export class AppService {
   }
 
   saveLockSettings(appLockSettings: any){
-    return  this.http.post<any>(`${environment.baseUrl}/saveLockSettings`,appLockSettings);
+    return  this.http.post<any>(`${environment.baseUrl}/app/saveLockSettings`,appLockSettings);
   }
 }
