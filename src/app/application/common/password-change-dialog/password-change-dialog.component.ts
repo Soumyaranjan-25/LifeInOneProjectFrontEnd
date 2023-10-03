@@ -118,6 +118,7 @@ export class PasswordChangeDialogComponent {
     }
     else{
       this.appLockSettings.password=this.newPassword;
+      this.appLockSettings.isAppLockOn=true;
       this.appService.saveLockSettings(this.appLockSettings).subscribe({
         next : (response)=>{
           console.log(response);

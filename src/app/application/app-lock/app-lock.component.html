@@ -1,7 +1,9 @@
 <!-- app-lock.component.html -->
 <div class="container mt-4">
     <h1 class="mb-3 text-center">App Lock Settings</h1>
-
+    <span class="back-icon" (click)="goBack()">
+        <i class="fa fa-arrow-left"></i><span class="text-danger left1"> Back</span>
+    </span>
     <!-- App Lock Toggle -->
     <div class=" text-center">
         <label class="right1 bold">Enable App Lock</label>
@@ -27,7 +29,7 @@
         <div class="app-item" *ngFor="let app of apps">
             <div class="app-container">
                 <label class="app-name">{{ app.appName }}</label>
-                <mat-slide-toggle [(ngModel)]="app.locked"  [disabled]="!appLockEnabled"></mat-slide-toggle>
+                <mat-slide-toggle [checked]="isAppLocked(app.appId)"  [disabled]="!appLockEnabled" (change)="onAppLockChange(app.appId)"></mat-slide-toggle>
             </div>
         </div>
     </div>

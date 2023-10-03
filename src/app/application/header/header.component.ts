@@ -2,6 +2,8 @@ import { Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angu
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { DarkModeService } from 'angular-dark-mode';
+import { Observable } from 'rxjs';
 import { HeaderService } from 'src/app/services/header.service';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -12,11 +14,15 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent {
   links: { name: any; url: any; app: any }[] = [];
+  readonly darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
+
+
+ 
 
   username = 'Soumyaranjan';
   userPhoto = 'https://example.com/photo.jpg';
   appName: String = "Apps";
-  isDarkMode: boolean = false;
+  isNightMode = false;
 
   Menu_Icon =
     `
@@ -31,6 +37,7 @@ export class HeaderComponent {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private headerService: HeaderService,
     private loginService: LoginService,
     private router : Router,
+    private darkModeService: DarkModeService,
     private renderer: Renderer2,
     private el: ElementRef) {
     iconRegistry.addSvgIconLiteral('menu', sanitizer.bypassSecurityTrustHtml(this.Menu_Icon));
@@ -43,10 +50,15 @@ export class HeaderComponent {
       this.links = links;
       this.appName = this.links[0].app;
     });
+    this.darkModeService.toggle();
   }
   logout(){
     this.loginService.logOut();
     this.router.navigate(['/login']);
+  }
+  onToggle(): void {
+    this.darkModeService.toggle();
+    // this.isNightMode = !this.isNightMode;
   }
 
 }

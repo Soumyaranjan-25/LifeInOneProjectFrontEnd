@@ -20,6 +20,7 @@ import { ViewTradingDataComponent } from './trading-data/view-trading-data/view-
 import { ImageModalComponent } from './common/image-modal/image-modal.component';
 import { AppLockComponent } from './app-lock/app-lock.component';
 import { PasswordChangeDialogComponent } from './common/password-change-dialog/password-change-dialog.component';
+import { AppLockPasswordComponent } from './common/app-lock-password/app-lock-password.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PasswordChangeDialogComponent } from './common/password-change-dialog/p
     ViewTradingDataComponent,
     ImageModalComponent,
     AppLockComponent,
-    PasswordChangeDialogComponent
+    PasswordChangeDialogComponent,
+    AppLockPasswordComponent
   ],
   imports: [
     CommonModule,

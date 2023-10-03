@@ -13,8 +13,6 @@ import { ApplicationModule } from './application/application.module';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
-
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -34,7 +32,7 @@ import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoade
         MatProgressSpinnerModule,
         NgxUiLoaderModule,
         NgxUiLoaderRouterModule,
-        NgxUiLoaderHttpModule
+        NgxUiLoaderHttpModule,
     ]
 })
 export class AppModule { }
