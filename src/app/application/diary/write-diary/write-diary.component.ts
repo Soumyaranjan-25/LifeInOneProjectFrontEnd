@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { headerLinks } from 'src/app/environment/headerLink';
 import { DiaryService } from 'src/app/services/diary.service';
 import { HeaderService } from 'src/app/services/header.service';
 
@@ -11,10 +12,7 @@ import { HeaderService } from 'src/app/services/header.service';
   styleUrls: ['./write-diary.component.css'],
 })
 export class WriteDiaryComponent implements OnInit {
-  links: any[] = [
-    { name: 'write-diary', url: './write-diary', app: 'Diary' },
-    { name: 'view-diary', url: './view-diary', app: 'Diary' },
-  ];
+  
   constructor(
     private headerService: HeaderService,
     private diaryService: DiaryService,
@@ -34,7 +32,7 @@ export class WriteDiaryComponent implements OnInit {
       diaryId: '',
       diaryContent: '',
     };
-    this.headerService.sendLinks(this.links);
+    this.headerService.sendLinks(headerLinks.diary);
 
     this.route.params.subscribe((params) => {
       const diaryId = params['id'];

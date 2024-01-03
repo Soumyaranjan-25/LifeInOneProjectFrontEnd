@@ -1,12 +1,14 @@
-<div class="container">
-    <h1 class="text-center mt-2">My Daily Diary</h1>
-    <div *ngFor="let diary of diaryList" class="diary-item">
-      <div class="diary-date">
-        {{ diary.dateOfWriting | date: 'dd-MM-yyyy' }}
-        <i class="fa fa-edit edit-icon " (click)="redirectToWriteDiary(diary.diaryId)"></i>
-      </div>
-      <hr>
-      <div class="diary-content" [innerHTML]="sanitizeHTML(diary.diaryContent)"></div>
+<div class="static-header">
+  <div class="title">View Diary</div>
+  <div class="address-bar">Diary | View-Diary</div>
+</div>
+<div class="container mt-4">
+  <div *ngFor="let diary of diaryList; let i = index" class="diary-item">
+    <div class="diary-date">
+      {{ diary.dateOfWriting | date: 'dd-MM-yyyy' }}
+      <i class="fa fa-edit edit-icon " (click)="redirectToWriteDiary(diary.diaryId)"></i>
     </div>
+    <hr>
+    <div class="diary-content" [class.blur]="i !== selectedDiaryIndex"  (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" [innerHTML]="sanitizeHTML(diary.diaryContent)"></div>
   </div>
-  
+</div>

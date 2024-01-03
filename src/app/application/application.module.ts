@@ -21,6 +21,10 @@ import { ImageModalComponent } from './common/image-modal/image-modal.component'
 import { AppLockComponent } from './app-lock/app-lock.component';
 import { PasswordChangeDialogComponent } from './common/password-change-dialog/password-change-dialog.component';
 import { AppLockPasswordComponent } from './common/app-lock-password/app-lock-password.component';
+import { CreditComponent } from './my-balancesheet/credit/credit.component';
+import { DebitComponent } from './my-balancesheet/debit/debit.component';
+import { MonthlyBalancesheetComponent } from './my-balancesheet/monthly-balancesheet/monthly-balancesheet.component';
+import { OverviewBalancesheetComponent } from './my-balancesheet/overview-balancesheet/overview-balancesheet.component';
 
 
 @NgModule({
@@ -39,7 +43,11 @@ import { AppLockPasswordComponent } from './common/app-lock-password/app-lock-pa
     ImageModalComponent,
     AppLockComponent,
     PasswordChangeDialogComponent,
-    AppLockPasswordComponent
+    AppLockPasswordComponent,
+    CreditComponent,
+    DebitComponent,
+    MonthlyBalancesheetComponent,
+    OverviewBalancesheetComponent
   ],
   imports: [
     CommonModule,

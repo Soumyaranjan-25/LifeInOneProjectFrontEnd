@@ -4,6 +4,7 @@ import { TradingDataService } from 'src/app/services/trading-data.service';
 import { ImageModalComponent } from '../../common/image-modal/image-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { headerLinks } from 'src/app/environment/headerLink';
 
 @Component({
   selector: 'app-view-trading-data',
@@ -17,18 +18,13 @@ export class ViewTradingDataComponent {
     private dialog: MatDialog,
     private ngxService: NgxUiLoaderService) { }
 
-
-  links: any[] = [{ 'name': 'Add trading Data', 'url': './add-trading-data', 'app': 'Trading Data' },
-  { 'name': 'View trading Data', 'url': './view-trading-data', 'app': 'Trading Data' }]
-
-
   tradingData: any[] = [];
   selectTradingId: any = null;
   tradeData: any;
   tradeDataImages: String[] = [];
 
   ngOnInit() {
-    this.headerService.sendLinks(this.links);
+    this.headerService.sendLinks(headerLinks.tradingData);
     this.GetAllTradingDataToShow();
   }
 

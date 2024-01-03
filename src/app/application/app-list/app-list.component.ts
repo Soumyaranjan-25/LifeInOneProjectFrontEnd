@@ -4,6 +4,7 @@ import { Route, Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
 import { HeaderService } from 'src/app/services/header.service';
 import { AppLockPasswordComponent } from '../common/app-lock-password/app-lock-password.component';
+import { AppLockSettingsService } from 'src/app/services/app-lock-settings.service';
 
 @Component({
   selector: 'app-app-list',
@@ -14,7 +15,8 @@ export class AppListComponent {
   constructor(private headerService: HeaderService,
     private appService: AppService,
     private router: Router,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private appLockSettingsService: AppLockSettingsService) { }
 
   searchQuery: any = "";
   filteredModules: any[] = [];
@@ -23,20 +25,31 @@ export class AppListComponent {
 
   links: any[] = [{ 'name': '', 'url': '', 'app': 'Apps' }]
 
+  private appLockSettingsSubscription: any; 
+
   ngOnInit() {
     this.headerService.sendLinks(this.links);
     this.loadModules();
     this.loadAppLockSettings();
+
+     // Subscribe to app lock settings updates
+     this.appLockSettingsSubscription = this.appLockSettingsService.appLockSettings$.subscribe((settings) => {
+      this.appLockSettings = settings;
+    });
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe to avoid memory leaks
+    if (this.appLockSettingsSubscription) {
+      this.appLockSettingsSubscription.unsubscribe();
+    }
   }
 
   loadAppLockSettings() {
     this.appService.getAppLockSettings().subscribe({
       next: (response) => {
         this.appLockSettings = response.data;
-        // this.lockAppList=JSON.parse(this.appLockSettings.lockAppList);
-        // this.appLockEnabled= this.appLockSettings.isAppLockOn;
         console.log("appLockSettings "+this.appLockSettings.lockAppList);
-        // console.log(this.lockAppList);
 
       },
       error: (error) => {

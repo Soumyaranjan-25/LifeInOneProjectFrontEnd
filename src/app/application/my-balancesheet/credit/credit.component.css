@@ -1,0 +1,16 @@
+.required {
+    color: red;
+    margin-left: 2px;
+  }
+
+  .btn-custom {
+    background-color: #7f72c9; /* Green color as an example */
+    color: white; /* Text color */
+}
+
+/* Customize the size of the "+" icon */
+.plus-icon::after {
+    content: '\002B'; /* Unicode character for plus symbol */
+    font-size: 1.3em; /* Adjust the size as needed */
+    margin-left: 5px; /* Add space between text and icon */
+}

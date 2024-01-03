@@ -4,6 +4,7 @@ import { AppService } from 'src/app/services/app.service';
 import { PasswordChangeDialogComponent } from '../common/password-change-dialog/password-change-dialog.component';
 import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppLockSettingsService } from 'src/app/services/app-lock-settings.service';
 @Component({
   selector: 'app-app-lock',
   templateUrl: './app-lock.component.html',
@@ -14,15 +15,16 @@ export class AppLockComponent {
   constructor(private appService: AppService,
     private dialog: MatDialog,
     private location: Location,
-    private snack: MatSnackBar) { }
+    private snack: MatSnackBar,
+    private appLockSettingsService: AppLockSettingsService) { }
   apps: any[] = [];
   oldPassword: any = '';
   newPassword: any = '';
   confirmPassword: any = '';
   appLockEnabled: boolean = false;
   isPasswordPopupOpen: boolean = false;
-  appLockSettings : any=[];
-  lockAppList : any=[];
+  appLockSettings: any = [];
+  lockAppList: any = [];
 
   ngOnInit() {
     this.loadModules();
@@ -53,12 +55,12 @@ export class AppLockComponent {
   loadAppLockSettings() {
     this.appService.getAppLockSettings().subscribe({
       next: (response) => {
-        this.appLockSettings=response.data;
-        this.lockAppList=JSON.parse(this.appLockSettings.lockAppList);
-        this.appLockEnabled= this.appLockSettings.isAppLockOn;
+        this.appLockSettings = response.data;
+        this.lockAppList = JSON.parse(this.appLockSettings.lockAppList);
+        this.appLockEnabled = this.appLockSettings.isAppLockOn;
         console.log(this.appLockSettings);
         console.log(this.lockAppList);
-       
+
       },
       error: (error) => {
         console.error('Error fetching in loading app lock settings', error);
@@ -71,7 +73,7 @@ export class AppLockComponent {
       this.openPasswordPopup(true); // Pass false to indicate not skipping old password
     }
   }
-  goBack(){
+  goBack() {
     this.location.back();
   }
 
@@ -79,30 +81,34 @@ export class AppLockComponent {
     this.saveAppLockDetails();
   }
 
-  saveAppLockDetails(){
-    if(this.appLockEnabled == true){
-     this.appLockSettings.lockAppList=JSON.stringify(this.lockAppList);
+  saveAppLockDetails() {
+    if (this.appLockEnabled == true) {
+      this.appLockSettings.lockAppList = JSON.stringify(this.lockAppList);
     }
-    this.appLockSettings.isAppLockOn=this.appLockEnabled;
+    this.appLockSettings.isAppLockOn = this.appLockEnabled;
     this.appService.saveLockSettings(this.appLockSettings).subscribe({
-      next : (response)=>{
+      next: (response) => {
         console.log(response);
-        
-        if(response.code == 200){
+
+        if (response.code == 200) {
+
+          // Update the app lock settings using the service
+          this.appLockSettingsService.updateAppLockSettings(this.appLockSettings);
+
           this.snack.open(response.message, 'ok', {
             duration: 5000,
             verticalPosition: 'bottom',
           });
         }
-        else{
+        else {
           console.log("Error in password save ! try Again");
-          
+
         }
       }
     });
   }
 
-  onAppLockChange(appId : any){
+  onAppLockChange(appId: any) {
     const appIdIndex = this.lockAppList.indexOf(appId);
     if (appIdIndex === -1) {
       this.lockAppList.push(appId);
@@ -110,7 +116,7 @@ export class AppLockComponent {
       this.lockAppList.splice(appIdIndex, 1);
     }
     console.log(this.lockAppList);
-    
+
   }
 
   isAppLocked(appId: number): boolean {

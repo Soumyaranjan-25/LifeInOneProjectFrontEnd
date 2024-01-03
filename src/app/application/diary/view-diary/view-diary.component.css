@@ -25,3 +25,11 @@
     right: 30px;
     font-size: 25px;
 }
+
+.diary-item {
+    transition: filter 0.3s ease; 
+  }
+  
+  .diary-content.blur {
+    filter: blur(4px); 
+  }

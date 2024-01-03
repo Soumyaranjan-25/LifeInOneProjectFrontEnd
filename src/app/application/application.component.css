@@ -1,6 +1,9 @@
-body{
+body {
+    min-height: 100vh;
+    margin: 0;
     background-color: rgb(233, 222, 223);
 }
-.containerr{
-    background-color:#FFFFF7;
+
+.containerr {
+    background-color: #FFFFF7;
 }

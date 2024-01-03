@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { headerLinks } from 'src/app/environment/headerLink';
 import { HeaderService } from 'src/app/services/header.service';
 import { TradingDataService } from 'src/app/services/trading-data.service';
 
@@ -9,10 +10,6 @@ import { TradingDataService } from 'src/app/services/trading-data.service';
   styleUrls: ['./add-trading-data.component.css']
 })
 export class AddTradingDataComponent {
-  links: any[] = [
-    { 'name': 'Add trading Data', 'url': './add-trading-data', 'app': 'Trading Data' },
-    { 'name': 'View trading Data', 'url': './view-trading-data', 'app': 'Trading Data' }
-  ]
 
   constructor(private headerService: HeaderService,
     private tradingService: TradingDataService,
@@ -35,7 +32,7 @@ export class AddTradingDataComponent {
   shareNameSuggestions: string[] = [];
 
   ngOnInit() {
-    this.headerService.sendLinks(this.links);
+    this.headerService.sendLinks(headerLinks.tradingData);
     this.tradeData.date = this.getTodayDate();
   }
 

@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  background-color: #f2f2f2;
+  background-color: #2f6ba3;
+  color: antiquewhite;
 }
 
 .header button {
@@ -18,10 +19,11 @@
 }
 
 .link {
+  font-weight: bold;
   text-decoration: none;
-  color: #333;
   font-size: 14px;
   margin-left: 20px;
+  color: antiquewhite;
 }
 b{
   font-size: 20px;

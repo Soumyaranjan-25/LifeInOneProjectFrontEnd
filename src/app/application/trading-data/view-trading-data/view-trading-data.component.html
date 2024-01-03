@@ -1,5 +1,8 @@
+<div class="static-header">
+    <div class="title">View Trading Data</div>
+    <div class="address-bar">Trading Data | View Trading Data</div>
+  </div>
 <div *ngIf="tradeData == null" class="container mt-4">
-    <h1 class="text-center">View Trading Data</h1>
     <div class="row mt-4">
         <div class="col-md-4 mb-2" *ngFor="let tradeData of tradingData">
             <mat-card class="trading-card" (click)="showTradeDetails(tradeData)">

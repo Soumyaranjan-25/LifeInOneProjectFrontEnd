@@ -1,22 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-  .right1{
-    margin-right: 10px;
-  }
-  .right2{
-    margin-right: 20px;
-  }
+.right1 {
+  margin-right: 10px;
+}
 
-  .left1{
-    margin-left: 10px;
-  }
-  .left2{
-    margin-left: 20px;
-  }
- 
+.right2 {
+  margin-right: 20px;
+}
+
+.left1 {
+  margin-left: 10px;
+}
+
+.left2 {
+  margin-left: 20px;
+}
+
+.bottom1 {
+  margin-bottom: 10px;
+}
+
+.bottom2 {
+  margin-bottom: 20px;
+}
+
+.static-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ca9797;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-left: 105px;
+}
+
+.address-bar {
+  font-size: 1em;
+}
+
+.requiredContainer {
+  background-color: #e2c9c9;
+}

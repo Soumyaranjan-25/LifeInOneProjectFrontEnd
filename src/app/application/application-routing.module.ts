@@ -11,6 +11,10 @@ import { ViewDocumentsComponent } from './documents/view-documents/view-document
 import { AddTradingDataComponent } from './trading-data/add-trading-data/add-trading-data.component';
 import { ViewTradingDataComponent } from './trading-data/view-trading-data/view-trading-data.component';
 import { AppLockComponent } from './app-lock/app-lock.component';
+import { CreditComponent } from './my-balancesheet/credit/credit.component';
+import { DebitComponent } from './my-balancesheet/debit/debit.component';
+import { MonthlyBalancesheetComponent } from './my-balancesheet/monthly-balancesheet/monthly-balancesheet.component';
+import { OverviewBalancesheetComponent } from './my-balancesheet/overview-balancesheet/overview-balancesheet.component';
 
 const routes: Routes = [
   {
@@ -69,6 +73,22 @@ const routes: Routes = [
       {
         path: 'view-trading-data',
         component: ViewTradingDataComponent
+      },
+      {
+        path: 'credit',
+        component: CreditComponent
+      },
+      {
+        path: 'debit',
+        component: DebitComponent
+      },
+      {
+        path: 'monthly-balancesheet',
+        component: MonthlyBalancesheetComponent
+      },
+      {
+        path: 'overview-balancesheet',
+        component: OverviewBalancesheetComponent
       },
     ]
   }
