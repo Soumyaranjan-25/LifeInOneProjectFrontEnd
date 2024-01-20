@@ -5,7 +5,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { headerLinks } from 'src/app/environment/headerLink';
+import { EncryptionDecryptionService } from 'src/app/services/encryption-decryption.service';
 import { HeaderService } from 'src/app/services/header.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-credit',
@@ -43,13 +45,16 @@ export class CreditComponent {
 
   displayedColumns: string[] = ['No','date', 'amount', 'creditFrom', 'remark', 'actions'];
 
-  @ViewChild(MatPaginator, {static: false}) paginator: any;
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+    // @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  
+
   constructor(private fb: FormBuilder,
     private snack: MatSnackBar,
-    private headerService: HeaderService) {
+    private headerService: HeaderService,
+    private encryptionDecryptionService : EncryptionDecryptionService,
+    private transactionService : TransactionService
+    ) {
     this.initForm();
   }
 
@@ -61,8 +66,11 @@ export class CreditComponent {
   ngAfterViewInit() {
     console.log(this.paginator);
     
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    setTimeout(() => this.dataSource.paginator = this.paginator);
+    // this.projectDataSource.paginator = this.paginator;
+    setTimeout(() => this.dataSource.sort = this.sort);
   }
 
   applyFilter(event: Event) {
@@ -87,11 +95,22 @@ export class CreditComponent {
 
   onSubmit() {
     if (this.creditForm.valid) {
-      // Implement logic to submit the form data
-      this.snack.open('The credit details have been successfully added', '', {
-        duration: 3000
-      })
-      console.log('The credit details have been successfully added');
+      const encryptedData = this.encryptionDecryptionService.encryptData(this.creditForm.value);
+
+      this.transactionService.submitCreditDetails(encryptedData).subscribe(
+        (response) => {
+          // Handle the response as needed
+          this.snack.open('The credit details have been successfully added', '', {
+            duration: 3000,
+          });
+          console.log('The credit details have been successfully added');
+        },
+        (error) => {
+          // Handle HTTP request errors
+          console.error('Error submitting credit details:', error);
+        }
+      );
+
       this.initForm(); // Reset the form after submission
     } else {
       this.snack.open("Please fill in all the required fields !! Try again", '', {

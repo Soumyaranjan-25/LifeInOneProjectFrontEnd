@@ -1,4 +1,7 @@
 
+let baseUrl = "http://localhost:9090";
+
 export const environment = {
-    baseUrl:"http://localhost:9090"
-}
+  baseUrl: baseUrl,
+  saveCreditUrl: `${baseUrl}/saveCreditDetails`,
+};
