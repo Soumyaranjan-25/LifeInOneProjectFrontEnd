@@ -8,12 +8,23 @@ export class EncryptionDecryptionService {
   private secretKey = 'a5a9671c8f8b41d1b48e409c07e9e384';
 
   encryptData(data: any): string {
-    return CryptoJS.AES.encrypt(JSON.stringify(data), this.secretKey).toString();
+    try {
+      const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), this.secretKey).toString();
+      return encrypted;
+    } catch (error) {
+      console.error('Encryption failed:', error);
+      throw error; 
+    }
   }
 
   decryptData(encryptedData: string): any {
-    const decryptedBytes = CryptoJS.AES.decrypt(encryptedData, this.secretKey);
-    return JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
+    try {
+      const decryptedBytes = CryptoJS.AES.decrypt(encryptedData, this.secretKey);
+      return JSON.parse(decryptedBytes.toString(CryptoJS.enc.Utf8));
+    } catch (error) {
+      console.error('Decryption failed:', error);
+      throw error; // Handle or rethrow the error as needed
+    }
   }
 
   // encText(plainText:any) {
