@@ -1,0 +1,113 @@
+/* Navbar */
+.navbar {
+  background-color: #333333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+/* Logo styling */
+.logo-container {
+  flex: 1;
+}
+
+.app-logo {
+  height: 60px;
+  width: 250px;
+}
+
+/* Centered navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  flex: 2;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.login-button {
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.login-button:hover,
+.nav-links a:hover {
+  background-color: #444444;
+}
+
+  
+  /* Section Styling */
+  .section {
+    padding: 3rem 1rem;
+  }
+  
+  .card {
+    background-color: #292929;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Features List */
+  .features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .feature-item {
+    background-color: #444444;
+    border-radius: 10px;
+    width: 150px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .feature-item mat-icon {
+    font-size: 2.5rem;
+    color: #ffcc00;
+  }
+  
+  .feature-item:hover {
+    background-color: #666666;
+  }
+  
+  /* Feature Details */
+  .feature-details {
+    margin-top: 2rem;
+  }
+  
+  .feature-card {
+    background-color: #333333;
+    color: #ffcc00;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333333;
+    padding: 1.5rem 0;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    width: 100%;
+    text-align: center;
+  }

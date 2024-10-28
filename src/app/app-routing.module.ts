@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './environment/auth.guard';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
-    path: '', pathMatch: 'full', redirectTo: '/login/loginPage'
+    path: '', pathMatch: 'full', redirectTo: '/landing'
+  },
+  {
+    path: 'landing', component: LandingPageComponent
   },
   {
     path: 'login',

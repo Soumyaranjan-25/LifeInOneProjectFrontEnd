@@ -12,12 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApplicationModule } from './application/application.module';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } from 'ngx-ui-loader';
+import { BootstrapModule } from './shared/bootstrap.module';
+import { MaterialModule } from './shared/material.module';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 @NgModule({
     declarations: [
         AppComponent,
         ApplicationComponent,
         LoginComponent,
+        LandingPageComponent,
     ],
     providers: [authIntercepterProviders],
     bootstrap: [AppComponent],
@@ -33,6 +37,8 @@ import { NgxUiLoaderConfig, NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoade
         NgxUiLoaderModule,
         NgxUiLoaderRouterModule,
         NgxUiLoaderHttpModule,
+        BootstrapModule,
+        MaterialModule
     ]
 })
 export class AppModule { }

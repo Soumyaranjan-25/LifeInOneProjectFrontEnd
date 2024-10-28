@@ -12,7 +12,7 @@ import { BootstrapModule } from '../shared/bootstrap.module';
   declarations: [
     LoginPageComponent,
     SignInComponent,
-    PoemComponent
+    PoemComponent,
   ],
   imports: [
     CommonModule,
