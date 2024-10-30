@@ -1,73 +1,65 @@
-<div class="landing-page">
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="assets/back_ground_image/Life In One.png" alt="Life In One Logo" class="app-logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home" (click)="scrollToSection('home')">Home</a></li>
-            <li><a href="#features" (click)="scrollToSection('features')">Features</a></li>
-            <li><a href="#about" (click)="scrollToSection('about')">About</a></li>
-            <li><a href="#feedback" (click)="scrollToSection('feedback')">Feedback</a></li>
-        </ul>
-        <button (click)="navigateToLogin()" class="login-button">Login</button>
-    </nav>
-    <div class="landing-container">
-        <!-- Home Section -->
-        <section id="home" class="section home">
-            <div class="card">
-                <h1 class="title">Welcome to Your Personal Management App</h1>
-                <p class="subtitle">
-                    Designed to help you seamlessly manage every aspect of your life, all in one place.
-                    With this app, you can organize contacts, track schedules, store documents, and much more.
-                </p>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="section features">
-            <h2>Features</h2>
-            <div class="features-list">
-                <div class="feature-item card" *ngFor="let feature of features"
-                    (click)="scrollToFeature(feature.appId)">
-                    <mat-icon>{{ feature.icon }}</mat-icon>
-                    <p class="feature-name">{{ feature.appName }}</p>
-                </div>
-            </div>
-
-
-            <!-- Detailed Feature Cards -->
-            <div class="feature-details" *ngFor="let feature of features" id="feature-{{feature.appId}}">
-                <div class="card feature-card">
-                    <h3>{{ feature.appName }}</h3>
-                    <p>{{ feature.description }}</p>
-                </div>
-            </div>
-        </section>
+<!-- Navbar -->
+<div class="body-container">
+  <nav class="navbar">
+    <div class="app-name">
+      <span class="app-icon">✨</span>
+      <span>Life In One</span>
     </div>
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="card">
-            <h2>About This App</h2>
-            <p>
-                This personal management app empowers you to keep track of daily tasks, maintain
-                a healthy routine, and organize critical information in a user-friendly interface.
-                Built with security and flexibility in mind, it’s designed to make your life more
-                manageable and enjoyable.
-            </p>
-        </div>
-    </section>
+    <ul class="nav-links">
+      <li><a href="#home" (click)="scrollToSection('home')">Home</a></li>
+      <li><a href="#features" (click)="scrollToSection('features')">Features</a></li>
+      <li><a href="#about" (click)="scrollToSection('about')">About</a></li>
+      <li><a href="#feedback" (click)="scrollToSection('feedback')">Feedback</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <button class="auth-button" (click)="navigateToLogin()">Sign In</button>
+      <span>|</span>
+      <button class="auth-button" (click)="navigateToLogin()">Login</button>
+    </div>
+  </nav>
 
-    <!-- Feedback Section -->
-    <section id="feedback" class="section feedback">
-        <div class="card">
-            <h2>Feedback</h2>
-            <p>We value your input! Let us know how we can improve the app to better serve your needs.</p>
-        </div>
-    </section>
+  <div class="main-content">
+    <!-- Black Background Section -->
+    <div class="black-bg">
+      <span class="tagline plan">PLAN .</span>
+      <span class="tagline manage">MANAGE .</span>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Contact us at: supportpersonalapp.com</p>
-    </footer>
+    <!-- Image Background Section with Overlay and Tagline -->
+    <div class="image-bg">
+      <span class="tagline achieve">ACHIEVE .</span>
+      <div class="content">
+        <h2>Life in One</h2>
+        <p>Your all-in-one app for organizing and managing life’s essentials.</p>
+        <button class="get-started">Get Started</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h2>About Life in One</h2>
+      <p>
+        Life in One is the ultimate solution for organizing your life. Designed to keep you on track and help you manage
+        everything in one place, from tasks and schedules to documents and reminders.
+      </p>
+      <p>
+        With Life in One, productivity meets simplicity. Our modern interface provides all the essential tools you need,
+        allowing you to focus on what truly matters. Get ready to achieve more, with less hassle.
+      </p>
+      <button class="learn-more">Learn More</button>
+    </div>
+  </section>
+  <section id="about" class="feature-section">
+  <div class="feature-content">
+    <h2>Features</h2>
+    <div class="feature-card" *ngFor="let feature of features; let i = index" [ngClass]="{ 'reverse': i % 2 !== 0 }">
+      <img src="{{ feature.image }}" alt="{{ feature.title }}" class="feature-image" />
+      <div class="feature-content">
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
