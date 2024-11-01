@@ -70,6 +70,12 @@ export class LandingPageComponent {
     }
 ];
 
+testimonials = [
+  { text: "This app is fantastic!", user: "User1" },
+  { text: "Helped me organize everything.", user: "User2" },
+  // Add more testimonials as needed
+];
+
 
   constructor(private router: Router) { }
 
@@ -79,5 +85,9 @@ export class LandingPageComponent {
 
   navigateToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  setRating(rating: number) {
+    console.log(`User rated: ${rating}`);
   }
 }
