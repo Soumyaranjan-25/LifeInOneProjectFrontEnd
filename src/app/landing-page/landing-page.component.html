@@ -50,16 +50,67 @@
       <button class="learn-more">Learn More</button>
     </div>
   </section>
-  <section id="about" class="feature-section">
-  <div class="feature-content">
-    <h2>Features</h2>
-    <div class="feature-card" *ngFor="let feature of features; let i = index" [ngClass]="{ 'reverse': i % 2 !== 0 }">
-      <img src="{{ feature.image }}" alt="{{ feature.title }}" class="feature-image" />
-      <div class="feature-content">
-        <h3>{{ feature.title }}</h3>
-        <p>{{ feature.description }}</p>
+  <section id="features" class="features-section">
+    <h2 class="features-heading">Features</h2>
+    <div *ngFor="let feature of features; let i = index" class="feature-card" [ngClass]="{ 'reverse': i % 2 !== 0 }">
+      <div class="feature-image-container">
+        <img src="{{ feature.image }}" alt="{{ feature.title }}" class="feature-image" />
+      </div>
+      <div class="feature-details">
+        <h3 class="feature-title">{{ feature.title }}</h3>
+        <p class="feature-description">{{ feature.description }}</p>
       </div>
     </div>
+  </section>
+
+
+<!-- Feedback Section -->
+<section id="feedback" class="feedback-section">
+  <h2 class="section-heading">Feedback</h2>
+  <div class="feedback-card">
+      <form class="feedback-form">
+          <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+              <label for="feedback">Feedback</label>
+              <textarea id="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+      </form>
   </div>
 </section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <h2 class="section-heading">Contact Us</h2>
+  <div class="contact-info">
+      <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>supportlifeinone.com</span>
+      </div>
+      <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <span>+123-456-7890</span>
+      </div>
+      <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Main St, City, Country</span>
+      </div>
+  </div>
+</section>
+
+<!-- Copyright Section -->
+<footer class="footer">
+  <p>&copy; 2024 Life in One. All rights reserved.</p>
+</footer>
+
+
+  
+  
 </div>
