@@ -16,12 +16,14 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule, NgxUiLoaderRouterModule } fro
 import { BootstrapModule } from './shared/bootstrap.module';
 import { MaterialModule } from './shared/material.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { InfoModalComponent } from './modal/info-modal/info-modal.component';
 @NgModule({
     declarations: [
         AppComponent,
         ApplicationComponent,
         LoginComponent,
         LandingPageComponent,
+        InfoModalComponent,
     ],
     providers: [authIntercepterProviders],
     bootstrap: [AppComponent],

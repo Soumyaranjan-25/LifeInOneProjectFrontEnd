@@ -7,7 +7,7 @@
     </div>
     <ul class="nav-links">
       <li><a href="#home" (click)="scrollToSection('home')">Home</a></li>
-      <li><a href="#features" (click)="scrollToSection('features')">Features</a></li>
+      <li><a href="#features" (click)="scrollToSection('features')">Services</a></li>
       <li><a href="#about" (click)="scrollToSection('about')">About</a></li>
       <li><a href="#feedback" (click)="scrollToSection('feedback')">Feedback</a></li>
     </ul>
@@ -64,47 +64,39 @@
   </section>
 
 
-  <footer class="footer-section">
-    <!-- Quick Links -->
-    <div class="footer-quick-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
+  <section class="contact-section">
+    <!-- Contact Information Section -->
+    <h2 class="contact-heading">Contact</h2>
+    <div class="contact-content">
+      <div class="contact-contact-us" style="--i: 1;">
+        <h3>Contact Us</h3>
+        <p>Address: OCAC Tower, Bhubaneswar</p>
+        <p>Email: soumyaranjanmahapatra gmail.com</p>
+        <p>Mobile: 8249574869</p>
+      </div>
+      <div class="contact-quick-links" style="--i: 2;">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="contact-social-media" style="--i: 3;">
+        <h3>Follow Us</h3>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
-  
-    <!-- Social Media Links -->
-    <div class="footer-social-media">
-      <h3>Follow Us</h3>
-      <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-      <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
-      <a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-  
-    <!-- Newsletter Signup -->
-    <div class="footer-newsletter">
-      <h3>Stay Updated</h3>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  
-    <!-- Contact Information -->
-    <div class="footer-contact">
-      <h3>Contact Us</h3>
-      <p>1234 Main St, Anytown, State, 12345</p>
-      <p>Email: infoexample.com</p>
-      <p>Phone: +123 456 7890</p>
-    </div>
-  </footer>
-  
+  </section>
+
+
   <!-- Copyright -->
   <div class="footer-bottom">
-    <p>&copy; 2024 Life in One. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms">Terms of Use</a></p>
+    <p>&copy; 2024 Life in One. All rights reserved. | 
+      <a href="#" (click)="openInfoModal('privacy')">Privacy Policy</a> | 
+      <a href="#" (click)="openInfoModal('terms')">Terms of Use</a>
+    </p>
   </div>
-  

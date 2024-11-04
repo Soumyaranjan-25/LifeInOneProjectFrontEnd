@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { InfoModalComponent } from '../modal/info-modal/info-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 interface Feature {
   appId: number;
@@ -13,6 +15,8 @@ interface Feature {
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent {
+  constructor(private dialog: MatDialog, private router: Router) { }
+
   features = [
     {
       title: 'Contact Management',
@@ -68,16 +72,14 @@ export class LandingPageComponent {
       image: 'assets/Feature/balance_sheet.jpg',
       link: '/balance-sheet'
     }
-];
+  ];
 
-testimonials = [
-  { text: "This app is fantastic!", user: "User1" },
-  { text: "Helped me organize everything.", user: "User2" },
-  // Add more testimonials as needed
-];
+  testimonials = [
+    { text: "This app is fantastic!", user: "User1" },
+    { text: "Helped me organize everything.", user: "User2" },
+    // Add more testimonials as needed
+  ];
 
-
-  constructor(private router: Router) { }
 
   scrollToSection(section: string) {
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
@@ -89,5 +91,40 @@ testimonials = [
 
   setRating(rating: number) {
     console.log(`User rated: ${rating}`);
+  }
+
+
+  openInfoModal(type: 'privacy' | 'terms') {
+    let title: string;
+    let content: string;
+
+    if (type === 'privacy') {
+      title = 'Privacy Policy';
+      content = `
+        Life in One is committed to protecting your privacy. This privacy policy explains how we collect, use, and safeguard your personal information. 
+        When you access or use our application, we may collect various types of information, including but not limited to your name, email address, location, 
+        and any other details you choose to share with us. The information we collect is used to enhance your experience, personalize content, and improve our services.
+        We also use cookies and similar technologies to gather additional website usage data. You can control cookie settings on your browser to limit this data collection.
+        All collected information is kept secure with us, and we do not share your personal details with any third parties unless legally required.
+        You have the right to request access, updates, or deletion of your personal data at any time by contacting our support team.
+        This privacy policy may be updated periodically to reflect changes in our practices or legal obligations. We encourage you to review it regularly.
+        If you have any questions regarding our data practices, please reach out to us. Your trust is important to us, and we aim to make your experience on Life in One safe and secure.
+      `;
+    } else {
+      title = 'Terms of Use';
+      content = `
+        The Terms of Use govern your use of the Life in One application. By accessing or using our services, you agree to comply with these terms.
+        It is your responsibility to read these terms carefully before using our platform. We reserve the right to modify these terms at any time.
+        Continued use of the application after any changes constitute your acceptance of the new terms. 
+        You agree not to misuse our services or engage in any conduct that is harmful to others.
+        We do not guarantee the accuracy of the information presented in our application and are not liable for any discrepancies.
+        If you have any questions about the terms, please contact our support team. 
+      `;
+    }
+
+    this.dialog.open(InfoModalComponent, {
+      width: '600px',
+      data: { title, content }
+    });
   }
 }
