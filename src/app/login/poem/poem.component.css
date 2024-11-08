@@ -1,39 +1,115 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Consistent font family */
+  background-color: #121212; /* Dark background to match your landing page */
+  color: #fff; /* White text for contrast */
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(183, 202, 202);
-  /* Use a light gray color as the background */
 }
 
+/* Layout for the two columns */
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.poem-container {
+  padding: 20px;
+  background: #2C2C2C; /* Dark background for the poem side */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.login-container {
+  padding: 20px;
+  background: #333; /* Slightly lighter dark background for the login form */
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+/* Poem Styling */
 .quote {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #8f0b79;
-  /* Use a purple color for the text */
+  font-weight: 400;
+  color: #F1A7A2;
   text-align: center;
-  border: 2px solid #595291;
-  /* Add a purple border to the text */
   padding: 20px;
-  /* Add some padding to the text */
+  background-color: #444; /* Slightly darker background for the quote */
+  border: 2px solid #F1A7A2; /* Light border to match the color theme */
   border-radius: 10px;
-  /* Add rounded corners to the border */
-  background-color: #eee2e2;
-  /* Use a white background for the text */
+  margin-bottom: 20px;
 }
 
 .author {
   font-size: 1rem;
-  color: #311fbb;
-  /* Use a purple color for the author name */
+  color: #B8B8B8;
   text-align: right;
-  display: block;
-  margin-top: 10px;
-  /* Add some space between the quote and author */
 }
 
 .name {
-  font-size: 20px;
-  color: rgb(21, 83, 141);
+  font-size: 18px;
+  color: #90CAF9;
+}
+
+/* Login Form Styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #45a049;
+}
+
+.signin-link {
+  background-color: transparent;
+  color: #4CAF50;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.signin-link:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poem-container,
+  .login-container {
+    width: 80%;
+    margin-bottom: 20px;
+  }
 }

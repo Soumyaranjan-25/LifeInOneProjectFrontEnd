@@ -1,51 +1,189 @@
-.full-width{
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212; /* Black background */
+  color: #fff; /* White text for contrast */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   width: 100%;
 }
-h4{
-  text-align: right;
+
+.login-card {
+  background: #1C1C1C; /* Dark gray card for contrast */
+  border-radius: 15px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border: 2px solid #F1C40F; /* Yellow border for an accent */
 }
-.container{
-  margin-top: 25%;
+
+.login-header {
+  margin-bottom: 20px;
+}
+
+.login-header h2 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.login-header p {
+  color: #bbb;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+/* Form Styling */
+.login-form {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.input-field {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-label {
+  color: #fff;
+}
+
+input {
+  color: #fff;
+  background: #333;
+  border: 1px solid #444;
+}
+
+input:focus {
+  border: 1px solid #F1C40F; /* Yellow focus effect */
+}
+
+.forgot-password {
+  text-align: right;
+}
+
+.forgot-password a {
+  color: #F1C40F; /* Yellow color for the link */
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Login Button */
+.login-btn {
+  background-color: #F1C40F; /* Yellow button */
+  color: #fff;
+  border-radius: 30px;
+  padding: 12px;
+  font-size: 1.2rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: #F39C12; /* Slightly darker yellow on hover */
+}
+
+/* Social Login Section */
+.social-login {
+  margin-top: 30px;
+}
+
+.social-login h3 {
+  font-size: 1.2rem;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social-btn {
+  display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #ccc;
-  height: auto;
-  width: 400px;
-  background:  url('../../../assets/cool-background.png')right top ;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  /* position: absolute; */
-   /* top: 50%; */
-  /* left: 50%;
-  transform: translate(-50%, -50%); */
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
 }
-body {
-  /* background: #EFE6E6 url('../../../assets/loginbg.png') center center/cover no-repeat; */
-  background-color:  rgb(183, 202, 202);
-  margin: 0;
-  height: 100vh;
-}
- .login { 
-   border-radius: 40px; 
-   padding: 10px 30px; /* add a background color  */ 
-  border: none; 
-   cursor: pointer; 
- } 
 
-.login:hover {
-  opacity: 0.8; /* reduce opacity on hover for a subtle effect */
+.social-btn:hover {
+  opacity: 0.8;
 }
+
+.google-btn {
+  background-color: #db4437;
+}
+
+.facebook-btn {
+  background-color: #4267B2;
+}
+
+/* Social Icon */
 .icon {
-  /* display: inline-block; */
-  width: 30px; /* adjust this value to fit your image size */
-  height: 30px; /* adjust this value to fit your image size */
-}
-.signin{
-  background-color: aquamarine;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
+.google-icon {
+  background-image: url('../../../assets/Icon/google_icon.jfif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
+.facebook-icon {
+  background-image: url('../../../assets/Icon/facebook_icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
+/* Sign-Up Link */
+.sign-up-link {
+  margin-top: 20px;
+  font-size: 1rem;
+}
 
+.sign-up-link a {
+  color: #F1C40F; /* Yellow color for the link */
+  text-decoration: none;
+}
+
+.sign-up-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+}
