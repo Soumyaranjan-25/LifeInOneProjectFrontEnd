@@ -1,52 +1,10 @@
-<body>
-  <div class="login-container">
-    <div class="login-card">
-      <div class="login-header">
-        <h2>Login to Your Account</h2>
-        <p>Welcome back! Please enter your credentials to continue.</p>
-      </div>
+<div class="split-background">
+  <div class="left-section"></div>
 
-      <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
-        <!-- User Name Input -->
-        <mat-form-field appearance="outline" class="input-field">
-          <mat-label>User Name</mat-label>
-          <input matInput formControlName="userName" placeholder="Enter your username" required>
-        </mat-form-field>
+  <!-- SVG wave for the asymmetric separator -->
+  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path fill="black" d="M 50 0 C 65 25, 75 60, 50 100 S 30 70, 25 50 Z" />
+  </svg>
 
-        <!-- Password Input -->
-        <mat-form-field appearance="outline" class="input-field">
-          <mat-label>Password</mat-label>
-          <input matInput formControlName="password" type="password" placeholder="Enter your password" required>
-        </mat-form-field>
-
-        <!-- Forgot Password Link -->
-        <div class="forgot-password">
-          <a href="#">Forgot Password?</a>
-        </div>
-
-        <!-- Login Button -->
-        <button type="submit" mat-raised-button color="primary" class="login-btn">
-          Login
-        </button>
-      </form>
-
-      <!-- Social Login Options -->
-      <div class="social-login">
-        <h3>or Login with</h3>
-        <div class="social-buttons">
-          <button class="social-btn google-btn">
-            <span class="icon google-icon"></span> Google
-          </button>
-          <button class="social-btn facebook-btn">
-            <span class="icon facebook-icon"></span> Facebook
-          </button>
-        </div>
-      </div>
-
-      <!-- Sign-up Link -->
-      <div class="sign-up-link">
-        <p>Don't have an account? <a routerLink="/signUp">Sign Up</a></p>
-      </div>
-    </div>
-  </div>
-</body>
+  <div class="right-section"></div>
+</div>

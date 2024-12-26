@@ -7,9 +7,9 @@
     </div>
     <ul class="nav-links">
       <li><a href="#home" (click)="scrollToSection('home')">Home</a></li>
-      <li><a href="#features" (click)="scrollToSection('features')">Services</a></li>
       <li><a href="#about" (click)="scrollToSection('about')">About</a></li>
-      <li><a href="#feedback" (click)="scrollToSection('feedback')">Feedback</a></li>
+      <li><a href="#features" (click)="scrollToSection('features')">Services</a></li>
+      <li><a href="#feedback" (click)="scrollToSection('feedback')">Contact</a></li>
     </ul>
     <div class="auth-buttons">
       <button class="auth-button" (click)="navigateToLogin()">Sign In</button>
@@ -51,7 +51,7 @@
     </div>
   </section>
   <section id="features" class="features-section">
-    <h2 class="features-heading">Features</h2>
+    <h2 class="features-heading">Services</h2>
     <div *ngFor="let feature of features; let i = index" class="feature-card" [ngClass]="{ 'reverse': i % 2 !== 0 }">
       <div class="feature-image-container">
         <img src="{{ feature.image }}" alt="{{ feature.title }}" class="feature-image" />
@@ -78,8 +78,8 @@
         <h3>Quick Links</h3>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
           <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
